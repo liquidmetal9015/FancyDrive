@@ -18,7 +18,7 @@ public class WheelPackage extends Subsystem implements PIDOutput, SpeedControlle
 
 	double deadZone = 0.05;
 	
-	double maxSpeed;
+	double maxSpeed = 2600;
 
 	double outputValue;
 
@@ -28,8 +28,10 @@ public class WheelPackage extends Subsystem implements PIDOutput, SpeedControlle
 		nCoder.setPIDSourceType(PIDSourceType.kRate);
 		control = new PIDController(0.0001,0,0,nCoder,this);
 		control.setOutputRange(-1, 1);
-
+		//-0.0008, 0, -0.0002
 		outputValue = 0;
+		
+		
 
 	}
 
