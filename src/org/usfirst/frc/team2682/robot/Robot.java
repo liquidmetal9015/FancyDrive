@@ -7,7 +7,8 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
+import org.usfirst.frc.team2682.robot.subsystems.*;
+import edu.wpi.first.wpilibj.Joystick;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -20,7 +21,8 @@ public class Robot extends IterativeRobot {
 
 	
 	public static OI oi;
-
+	public static DriveTrain chassis;
+	public static Joystick stick;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -28,7 +30,8 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		
+		chassis = new DriveTrain();
+		stick = new Joystick(1);
 	}
 
 	/**

@@ -75,7 +75,17 @@ public class WheelPackage extends Subsystem implements PIDOutput, SpeedControlle
 
 
 	public void pidWrite(double input){
-		outputValue += input;	
+		
+		outputValue += input;
+		
+		if(outputValue > 1){
+			outputValue = 1;
+		}
+		
+		if(outputValue < -1){
+			outputValue = -1;
+		}
+		
 		motor.set(outputValue);
 
 	}
@@ -91,8 +101,10 @@ public class WheelPackage extends Subsystem implements PIDOutput, SpeedControlle
 	public void setPIDEnabled(boolean enable){
 		if(enable){
 			control.enable();
+			outputValue = 0;
 		} else {
 			control.disable();
+			outputValue = 0;
 		}
 	}
 
